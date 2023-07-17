@@ -1,7 +1,9 @@
 Overview
 
 The goals of our first Haskell script are straightforward: first, return k items taken from collection n without replacement; second, return k items taken from collection n with replacement; and third, return k items taken from collections (n, m), where collections n and m do not share elements.
-For the time being, we are not concerned about performance, nor are we concerned with writing elegant code.  Simply put, we need our first foray into functional programming to yield the expected results.  
+
+For the time being, we are not concerned about performance, nor are we concerned with writing elegant code.  Simply put, we need our first foray into functional programming to yield the expected results.
+ 
 Since an understanding of combinatorics is essential to poker, our examples will revolve around starting hands in No Limit Texas Holdem.  Our first and second goals  are explored by determining possible combinations of pocket twos, while our third goal is explored by returning possible combinations of Ace-King - poker’s most famous drawing hand.
 
 
@@ -27,6 +29,7 @@ Haskell functions generally begin with type signatures, which provide an overvie
 This signature reads, "Type ‘a’ belongs to the Eq class.  A pair of two-tuples comprising elements of type ‘a’ is passed to compareTuples, which returns a Boolean value."  The signature’s first component, "Eq a," is a constraint placed upon the function - essentially, we must be able to determine equality between instances of type "a."
 
 The type signature of our second function, removeTuples, is:
+
 	removeTuples :: Eq a => [(a,a)] -> [(a,a)]
 
 This reads, "Type ‘a’ belongs to the Eq class.  A list of two-tuples having type ‘a’ is passed to removeTuples, and a list of two-tuples having type ‘a’ is returned to the caller."
@@ -45,7 +48,6 @@ As outlined in our type signature, compareTuples takes a pair of two-tuples.  We
 The functions reads, "if x is equal to y, then return True; if x is equal to the tuple comprising y’s second element followed by y’s first element,  then return True; otherwise, return False."  Compact indeed!
 
 Our definition for removeTuples requires a modicum of nuance.  We must determine whether any given element in our list of tuples appears elsewhere in the list.  To that end, Haskell supplies the following notation: (x:xs), such that x is the first element in the list, and xs is the remainder of the list.  
-
 How do we compare x with any given element in xs?  Moreover, how do we continue to filter for duplicates after our first comparison is made?  We must use recursion - that is, our function must call itself.  Let’s examine the function in full:
 
 	removeTuples [ ] = [ ]
@@ -53,21 +55,22 @@ How do we compare x with any given element in xs?  Moreover, how do we continue 
     		where
         		y = [z | z <- xs, not (compareTuples x z)]
 
-	Lines two through four read, "concatenate the list comprising element x with the result of removeTuples y, where y comprises all elements z such that z belongs to xs and z is not equal to x."  Let this sink in for a moment.  While this is not intuitive - at least for me - it does make sense when you visualize the definition. 
+Lines two through four read, "concatenate the list comprising element x with the result of removeTuples y, where y comprises all elements z such that z belongs to xs and z is not equal to x."  Let this sink in for a moment.  While this is not intuitive - at least for me - it does make sense when you visualize the definition. 
  
 Let’s consider the pairs of Aces taken from the set {"Ac", "Ad", "Ah"}.  This yields the permutations ("Ac", "Ad"), ("Ac", "Ah"), ("Ad", "Ac"), ("Ad", "Ah"), ("Ah", "Ac"), ("Ah", "Ad").  Our function declares the following:
 
-1.	Concatenate [("Ac", "Ad")] with removeTuples [("Ac", "Ah"), ("Ad", "Ah"), ("Ah", "Ac"), ("Ah", 		"Ad")].  Note that ("Ad", "Ac") is absent from the list passed to removeTuples.
+1.	Concatenate [("Ac", "Ad")] with removeTuples [("Ac", "Ah"), ("Ad", "Ah"), ("Ah", "Ac"), ("Ah", "Ad")].  Note that ("Ad", "Ac") is absent from the list passed to removeTuples.
 
-2.	Concatenate [("Ac", "Ah")] with removeTuples [("Ad", "Ah"),("Ah", "Ad")].  Note that ("Ah", "Ac") 		is absent from the list passed to removeTuples.
+2.	Concatenate [("Ac", "Ah")] with removeTuples [("Ad", "Ah"),("Ah", "Ad")].  Note that ("Ah", "Ac") is absent from the list passed to removeTuples.
 
-3.	Concatenate [("Ad", "Ah")] with removeTuples [ ].  Once again, a removal has taken place, and we 		are left with an empty list, which is passed to removeTuples.
+3.	Concatenate [("Ad", "Ah")] with removeTuples [ ].  Once again, a removal has taken place, and we are left with an empty list, which is passed to removeTuples.
 
 4.	[ ] ++ [("Ad", "Ah")] = [("Ad", "Ah")]
 
 5.	[("Ad", "Ah")] ++ [("Ac", "Ah")] = [("Ad", "Ah"), ("Ac", "Ah")].
 
 6.	[("Ad", "Ah"), ("Ac", "Ah")] ++ [("Ac", "Ad")] = [("Ad", "Ah"), ("Ac", "Ah"), ("Ac", "Ad")].
+
 
 The nuance  in this definition lies in the declaration "removeTuples [ ] = [ ]."  That is, passing an empty list into removeTuples will return an empty list.  This is called the base case.  As the steps outline, the function continues to call removeTuples until it reaches the base case, at which point it performs all necessary concatenations, returning a list filtered for duplicates.
 
