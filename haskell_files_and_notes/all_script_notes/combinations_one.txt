@@ -44,8 +44,8 @@ As outlined in our type signature, compareTuples takes a pair of two-tuples.  We
 
 The functions reads, "if x is equal to y, then return True; if x is equal to the tuple comprising y’s second element followed by y’s first element,  then return True; otherwise, return False."  Compact indeed!
 
-Our definition for removeTuples requires a modicum of nuance.  We must determine whether any given element in our list of tuples appears elsewhere in the list.  To that end, Haskell supplies the following notation: (x:xs), such that x is the first element in the list, and xs is the remainder of the list.  
-
+Our definition for removeTuples requires a modicum of nuance.  We must determine whether any given element in our list of tuples appears elsewhere in the list.  To that end, Haskell supplies the following notation: (x:xs), such that x is the first element in the list, and xs is the remainder of the list.
+  
 How do we compare x with any given element in xs?  Moreover, how do we continue to filter for duplicates after our first comparison is made?  We must use recursion - that is, our function must call itself.  Let’s examine the function in full:
 
 	removeTuples [ ] = [ ]
@@ -53,8 +53,8 @@ How do we compare x with any given element in xs?  Moreover, how do we continue 
     		where
         		y = [z | z <- xs, not (compareTuples x z)]
 
-	Lines two through four read, "concatenate the list comprising element x with the result of removeTuples y, where y comprises all elements z such that z belongs to xs and z is not equal to x."  Let this sink in for a moment.  While this is not intuitive - at least for me - it does make sense when you visualize the definition. 
- 
+Lines two through four read, "concatenate the list comprising element x with the result of removeTuples y, where y comprises all elements z such that z belongs to xs and z is not equal to x."  Let this sink in for a moment.  While this is not intuitive - at least for me - it does make sense when you visualize the definition. 
+
 Let’s consider the pairs of Aces taken from the set {"Ac", "Ad", "Ah"}.  This yields the permutations ("Ac", "Ad"), ("Ac", "Ah"), ("Ad", "Ac"), ("Ad", "Ah"), ("Ah", "Ac"), ("Ah", "Ad").  Our function declares the following:
 
 1.	Concatenate [("Ac", "Ad")] with removeTuples [("Ac", "Ah"), ("Ad", "Ah"), ("Ah", "Ac"), ("Ah", 		"Ad")].  Note that ("Ad", "Ac") is absent from the list passed to removeTuples.
@@ -77,7 +77,7 @@ Passing pocketTwos into removeTuples returns our desired result - the six possib
 
 Assuming we are in a poker game dealt by some sort of mechanic or genie, we can easily return all combinations of pocket twos with replacement.  We simply have to drop the condition that x does not equal y from our initial list comprehension.
 
-	twos = [(x,y) | x <- [["2c", "2d", "2h", "2s"], y <- ["2c", "2d", "2h", "2s"]]
+	twos = [(x,y) | x <- ["2c", "2d", "2h", "2s"], y <- ["2c", "2d", "2h", "2s"]]
 	twosReplacement = removeTuples twos
 
 
