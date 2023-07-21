@@ -13,7 +13,7 @@ Since an understanding of combinatorics is essential to poker, our examples
 will revolve around starting hands in No Limit Texas Holdem.  Our first and
 second goals  are explored by determining possible combinations of pocket twos,
 while our third goal is explored by returning possible combinations of Ace-King
-- poker’s most famous drawing hand.
+\- poker’s most famous drawing hand.
 
 ## Pocket Twos:  without and with Replacement
 
@@ -129,7 +129,7 @@ Note that ("Ah", "Ac") is absent from the list passed to removeTuples.
 has taken place, and we are left with an empty list, which is passed to
 removeTuples.
 
-4.	[ ] ++ [("Ad", "Ah")] = [("Ad", "Ah")]
+4.	\[ \] ++ [("Ad", "Ah")] = [("Ad", "Ah")]
 
 5.	[("Ad", "Ah")] ++ [("Ac", "Ah")] = [("Ad", "Ah"), ("Ac", "Ah")].
 

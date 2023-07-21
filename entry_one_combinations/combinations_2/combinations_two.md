@@ -18,10 +18,10 @@ Printing nums to standard output will show that we have exhausted all possible
 combinations of numbers zero through three.  We can visualize the comprehension
 in the following manner:
 
-> x = 0; y = 0,1,2,3 => ~~(0,0)~~, (0,1), (0,2), (0,3)
-> x = 1; y = 1,2,3 => ~~(1,1)~~,(1,2), (1,3)
-> x = 2; y = 2,3 => ~~(2,2)~~,(2,3)
-> x = 3; y = 3 => ( )
+1. x = 0; y = 0,1,2,3 => ~~(0,0)~~, (0,1), (0,2), (0,3)
+2. x = 1; y = 1,2,3 => ~~(1,1)~~,(1,2), (1,3)
+3. x = 2; y = 2,3 => ~~(2,2)~~,(2,3)
+4. x = 3; y = 3 => ( )
 
 ## The Subscript Operator
 We can apply this same concept to a list of strings.  For example, we can use
