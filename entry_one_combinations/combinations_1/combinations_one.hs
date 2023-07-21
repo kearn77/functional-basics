@@ -43,16 +43,3 @@ No removals will take place.
 -}
 bigSlick = [(x,y) | x <- ["Ac","Ad","Ah","As"], y <- ["Kc","Kd","Kh","Ks"]]
 bigSlickCopy = removeTuples bigSlick
-
--- Print to standard output.
-main = do 
-    print (sort pocketTwos)
-    print (sort combosTwos)
-    print (sort twosReplacement)
-    putStr "\n"
-
-    print (sort numList)
-    putStr "\n"
-
-    print (sort bigSlick)
-    print (sort bigSlickCopy)
