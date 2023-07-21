@@ -80,9 +80,9 @@ tuples as x and y.  We must establish equality regardless of order.   As it turn
 accomplished compactly:
 
 ```
-compareTuples x y |x == y = True
-				|x == (snd y, fst y) = True
-				|otherwise = False
+compareTuples x y   | x == y = True
+                    | x == (snd y, fst y) = True
+                    | otherwise = False
 ```
 
 The functions reads, "if x is equal to y, then return True; if x is equal to the tuple comprising y’s 
