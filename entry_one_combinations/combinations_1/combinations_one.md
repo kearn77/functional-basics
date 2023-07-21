@@ -102,7 +102,7 @@ recursion - that is, our function must call itself.  Let’s examine the functio
 in full:
 
 ```
-removeTuples [ ] = [ ]
+removeTuples [] = []
 removeTuples (x:xs) = x : removeTuples y
 		where
     		y = [z | z <- xs, not (compareTuples x z)]

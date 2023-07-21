@@ -24,7 +24,10 @@ twos :: [String]
 pocketTwos :: [(String, String)]
 
 twos = ["2c","2d","2h","2s"]
-pocketTwos = [(twos !! x, twos !! y) | x <- [0..length twos - 1], y <- [x..length twos -1], x /= y]
+pocketTwos = [(twos !! x, twos !! y) | 
+                x <- [0..length twos - 1], 
+                y <- [x..length twos -1], 
+                x /= y]
 
 {-
 As outlined on Hoogle, the subscript operator is a partial function, meaning it 
