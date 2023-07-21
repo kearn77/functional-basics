@@ -81,8 +81,8 @@ accomplished compactly:
 
 ```
 compareTuples x y |x == y = True
-				  |x == (snd y, fst y) = True
-				  |otherwise = False
+				|x == (snd y, fst y) = True
+				|otherwise = False
 ```
 
 The functions reads, "if x is equal to y, then return True; if x is equal to the tuple comprising y’s 
@@ -129,7 +129,7 @@ Note that ("Ah", "Ac") is absent from the list passed to removeTuples.
 has taken place, and we are left with an empty list, which is passed to
 removeTuples.
 
-4.	\[\] ++ [("Ad", "Ah")] = [("Ad", "Ah")]
+4.	\[ \] ++ [("Ad", "Ah")] = [("Ad", "Ah")]
 
 5.	[("Ad", "Ah")] ++ [("Ac", "Ah")] = [("Ad", "Ah"), ("Ac", "Ah")].
 
