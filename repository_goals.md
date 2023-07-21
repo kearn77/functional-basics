@@ -1,3 +1,5 @@
+# Repository Goals
+
 The goal of this repository is to chronicle my progress with functional 
 programming and the Haskell programming language.  To that end, I will 
 endeavor to commit code snippets to the repository as frequently as possible, 
