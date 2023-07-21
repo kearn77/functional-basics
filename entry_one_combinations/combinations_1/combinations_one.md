@@ -21,10 +21,7 @@ Our approach to goals one and two will begin with list comprehensions.  We will
 create a list, "pocketTwos," with the comprehension:
 
 ```
-pocketTwos = [(x,y) | 
-                x <- ["2c","2d","2h","2s"], 
-                y <- ["2c","2d","2h","2s"], 
-                x /= y]
+pocketTwos = [(x,y) | x <- ["2c","2d","2h","2s"], y <- ["2c","2d","2h","2s"], x /= y]
 ```
 
 Simply put, this reads, "return all tuples (x,y), such that x belongs to the 
