@@ -45,5 +45,8 @@ pocketTwosSnd = [(fromMaybe "0" (Map.lookup x deuces), fromMaybe "0" (Map.lookup
                     y <- [x..length deuces - 1], 
                     x /= y]
 
+main = do
+    print pocketTwos
+    print pocketTwosSnd
 
 

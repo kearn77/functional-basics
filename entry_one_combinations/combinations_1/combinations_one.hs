@@ -50,3 +50,11 @@ bigSlick = [(x,y) | x <- ["Ac","Ad","Ah","As"], y <- ["Kc","Kd","Kh","Ks"]]
 
 bigSlickCopy :: [(String, String)]
 bigSlickCopy = removeTuples bigSlick
+
+main = do 
+    print pocketTwos
+    print combosTwos
+    print twosReplacement
+    print numList
+    print bigSlick
+    print bigSlickCopy
