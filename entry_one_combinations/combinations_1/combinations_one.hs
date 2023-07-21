@@ -19,21 +19,25 @@ removeTuples (x:xs) = x : removeTuples y
 -- FUNCTION IMPLEMENTATIONS
 
 -- Return permutations of pocket twos as a list of tuples.
+pocketTwos :: [(String, String)]
 pocketTwos = [(x,y) | x <- ["2c","2d","2h","2s"], y <- ["2c","2d","2h","2s"], x /= y]
 
 -- Pass pocketTwos to removeTuples to get all combinations of pocket twos.
+combosTwos :: [(String, String)]
 combosTwos = removeTuples pocketTwos
 
 {-
 Assuming our dealer is either a genie or a mechanic, we can return all possible
 combinations of pocket twos with replacement.
 -}
+twosReplacement :: [(String, String)]
 twosReplacement = removeTuples [(x,y) | x <- ["2c", "2d", "2h", "2s"], y <- ["2c", "2d", "2h", "2s"]]
 
 {-
 Note that our function will work with any type that belongs to the Eq class.
 For example, we can return combinations taken from a collection of numbers.
 -}
+numList :: [(Integer, Integer)]
 numList = removeTuples [(n,k) | n <- [10,20..50], k <- [10,20..50], n /= k]
 
 {-
@@ -41,5 +45,8 @@ It is not always necessary to call removeTuples to get combinations of items x, 
 However, passing bigSlick into removeTuples will have no undesired effects.
 No removals will take place. 
 -}
+bigSlick :: [(String, String)]
 bigSlick = [(x,y) | x <- ["Ac","Ad","Ah","As"], y <- ["Kc","Kd","Kh","Ks"]]
+
+bigSlickCopy :: [(String, String)]
 bigSlickCopy = removeTuples bigSlick
