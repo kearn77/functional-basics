@@ -52,9 +52,9 @@ collection of key => value pairs - to arrive at the same collection of twos.
 ```
 deuces = Map.fromList (zip [0..] twos)
 pocketTwosSnd = [(fromMaybe "0" (Map.lookup x deuces), fromMaybe "0" (Map.lookup y deuces)) | 
-                	x <- [0..length deuces - 1], 
-                	y <- [x..length deuces - 1], 
-                	x /= y] 
+                    x <- [0..length deuces - 1], 
+                    y <- [x..length deuces - 1], 
+                    x /= y]
 ```
 
 First, we create a list of tuples of the type [(Integer, String)].  This is
