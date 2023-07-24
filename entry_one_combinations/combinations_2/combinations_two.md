@@ -1,11 +1,11 @@
-# Combinations Continued
+## Combinations Continued
 
 In our first entry, we used recursion to generate all possible combinations of<br/>
 pocket twos from a standard, fifty-two card deck.  It served as a nice<br/>
 introduction to some core features of the language - type signatures, function<br/>
 definitions, and recursion.  
 
-Although it served as a nice introduction, we can simplify the code outlined
+Although it served as a nice introduction, we can simplify the code outlined<br/>
 in combinations_1.   In fact, we can return all combinations k taken from a<br/>
 collection n in a single line, without recursion.  For example, consider the<br/>
 list of integers zero to three. 

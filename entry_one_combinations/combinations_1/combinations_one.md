@@ -1,4 +1,4 @@
-# Overview
+## Overview
 
 The goals of our first Haskell script are straightforward: first, return k<br/>
 items taken from collection n without replacement; second, return k items taken<br/>
