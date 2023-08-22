@@ -30,25 +30,27 @@ data HandRank = HighCard|Pair|TwoPair|ThreeKind
                 deriving (Eq,Ord,Bounded,Enum,Show,Read)
 
 showRank :: Rank -> String
-showRank Two = "Two"
-showRank Three = "Three"
-showRank Four = "Four"
-showRank Five = "Five"
-showRank Six = "Six"
-showRank Seven = "Seven"
-showRank Eight = "Eight"
-showRank Nine = "Nine"
-showRank Ten = "Ten"
-showRank Jack = "Jack"
-showRank Queen = "Queen"
-showRank King = "King"
-showRank Ace = "Ace"
+showRank x |x == Two = "Two"
+           |x == Three = "Three"
+           |x == Four = "Four"
+           |x == Five = "Five"
+           |x == Six = "Six"
+           |x == Seven = "Seven"
+           |x == Eight = "Eight"
+           |x == Nine = "Nine"
+           |x == Ten = "Ten"
+           |x == Jack = "Jack"
+           |x == King = "King"
+           |x == Queen = "Queen"
+           |x == Ace = "Ace"
+           |otherwise = "Invalid rank."
 
 showSuit :: Suit -> String
-showSuit Clubs = "Clubs"
-showSuit Diamonds = "Diamonds"
-showSuit Hearts = "Hearts"
-showSuit Spades = "Spades"
+showSuit x |x == Clubs = "Clubs"
+           |x == Diamonds = "Diamonds"
+           |x == Hearts = "Hearts"
+           |x == Spades = "Spades"
+           |otherwise = "Invalid suit."
 
 showCard :: Card -> String
 showCard (Card r s) = printf "%s %s" (showRank r) (showSuit s)
