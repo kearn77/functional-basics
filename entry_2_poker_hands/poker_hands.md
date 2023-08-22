@@ -6,7 +6,7 @@ Main.hs prints the string representation of five hands to standard<br/>
 output.  Alternatively, the modules may be used interactively by<br/>
 loading Describe_hands in ghci.<br/>
 
-## [Poker_data_types](/Poker_data_types.hs)<br/>
+## [Poker_data_types](./Poker_data_types.hs)<br/>
 The Poker_data_types module creates four algebraic data types - Rank,<br/>
 Suit, Card, and HandRank.  Additionally, it provides two helper<br/>
 functions, showRank and showSuit, which return string representations<br/>
@@ -35,7 +35,7 @@ equality and enumerate over a collection of Ranks.  For an in-depth<br/>
 explanation of these type-classes, please reference [Hoogle](https://hoogle.haskell.org/), a Haskell<br/>
 API search engine.<br/>
 
-## [Determine_hands](/Determine_hands.hs)<br/>
+## [Determine_hands](./Determine_hands.hs)<br/>
 Given a list of five Cards, the Determine_hands module returns the<br/>
 proper hand classification for the list.   Importing the four data<br/>
 types created in the prior module, it creates four functions:<br/>
@@ -78,7 +78,7 @@ When combined with the group function, sortOn can return a list of<br/>
 lengths corresponding to the pair signature of a hand.  For example, we<br/>
 would expect an instance of TwoPair to have a signature of [1,2,2].<br/>
 
-## [Describe_hands](/Describe_hands.hs)<br/>
+## [Describe_hands](./Describe_hands.hs)<br/>
 The first four functions encountered in Describe_hands - getGroups,<br/>
 flattenGroups, filterRanks, and isWheel - are called in nine<br/>
 ‘describe functions,’ which return a description of a five-card<br/>
