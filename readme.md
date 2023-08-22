@@ -34,7 +34,7 @@ combinations of pocket twos from a standard, fifty-two card deck.<br/>
 Serves as an alternative to the recursive approach outlined in<br/>
 combinations_1.<br/>
 
-## [Poker Hands](/entry_2_poker_hands/)
+## [Poker Hands](/entry_2_poker_hands/poker_hands.md)
 This directory contains three modules that may be used to accurately<br/>
 describe a five-card poker hand.<br/>
 
