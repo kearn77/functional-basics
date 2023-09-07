@@ -4,13 +4,13 @@ and Describe_hands.  Collectively, they allow the user to accurately<br/>
 describe any five-card poker hand.  To demonstrate module usage,<br/>
 Main.hs prints the string representation of five hands to standard<br/>
 output.  Alternatively, the modules may be used interactively by<br/>
-loading Describe_hands in ghci.<br/>
+loading Describe_hands in ghci.  When loading the module in ghci,<br/>
+append an asterisk before the module name, e.g. `:load *Main`.  Failure<br/>
+to do so will result in qualified imports.<br/>
 
 ## [Poker_data_types](./Poker_data_types.hs)<br/>
 The Poker_data_types module creates four algebraic data types - Rank,<br/>
-Suit, Card, and HandRank.  Additionally, it provides two helper<br/>
-functions, showRank and showSuit, which return string representations<br/>
-of the Rank and Suit data types, respectively.<br/>
+Suit, Card, and HandRank.  
 
 Algebraic types use multiple constructors to create an instance of a<br/>
 type, either through a sum or product of its values.  A sum of<br/>

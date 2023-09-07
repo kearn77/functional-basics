@@ -1,6 +1,8 @@
 *.exe
 *.hi
 *.o
-entry_three_math/
+entry_3_reading_files
 entry_four_poker/
+entry_three_math/
+hs_formatting/
 markdown_formatting/
