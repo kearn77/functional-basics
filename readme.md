@@ -47,3 +47,17 @@ Defines the functions that assign a HandRank to a list of cards.<br/>
 
 ### [Describe_hands](/entry_2_poker_hands/Describe_hands.hs)
 Defines the functions that return a string description of a poker hand.<br/>
+
+## [Input and Output](/entry_3_reading_files)
+This directory examines basic input and output in Haskell.  If learning<br/>
+Haskell is like running a marathon, then input/output is the first of<br/>
+many hills to be conquered.  Indeed, it is the first real exposure I<br/>
+have had with "effectful" programming - that is, writing code that<br/>
+will have an effect on the real world.<br/>
+
+### [Reformatting a Text File](/entry_3_reading_files/Eol.hs)
+
+Using only the Haskell prelude, Eol.hs provides the fmtFile function,<br/>
+which formats a text file in accordance with user defined line breaks.<br/>
+Although the text and split libraries would make this task significantly<br/>
+easier, there is much to be gained by exploring alternative solutions.<br/>
