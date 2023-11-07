@@ -55,9 +55,14 @@ many hills to be conquered.  Indeed, it is the first real exposure I<br/>
 have had with "effectful" programming - that is, writing code that<br/>
 will have an effect on the real world.<br/>
 
-### [Reformatting a Text File](/entry_3_reading_files/Eol.hs)
+### [Reformatting a Text File](/entry_3_reading_files/reformatting_text/)
 
 Using only the Haskell prelude, Eol.hs provides the fmtFile function,<br/>
 which formats a text file in accordance with user defined line breaks.<br/>
 Although the text and split libraries would make this task significantly<br/>
 easier, there is much to be gained by exploring alternative solutions.<br/>
+
+### [Reformatting a Text File:  Refactor](/entry_3_reading_files/reformatting_text_refactor/)
+Refactoring of the Eol.hs module!  Removed superfluous functions while<br>
+improving the code's readability.  Excluding comments, the refactored<br>
+script is thirty-six lines.<br>
